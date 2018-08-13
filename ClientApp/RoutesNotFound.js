@@ -25,5 +25,5 @@ class RouteNotFound extends Component {
     }
 }
 
-RouteNotFound.defaultProps = {};
+// RouteNotFound.defaultProps = {};
 export default RouteNotFound;

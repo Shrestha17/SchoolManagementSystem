@@ -4,12 +4,14 @@ import reducers from './reducers';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 
-export default function configureStore(initialState = {}) {
+
+export default function 
+    configureStore(initialState = {}) { 
+
     return createStore(
         reducers,
-        initialState,
+        initialState,     
         applyMiddleware(thunk,
-        axios.create(axiosMiddleware(client))
-        )
+        axios.create(axiosMiddleware(client)))
     );
 }

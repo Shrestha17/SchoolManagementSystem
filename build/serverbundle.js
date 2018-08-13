@@ -116,6 +116,10 @@ var _Home = __webpack_require__(/*! ./components/home/Home */ "./ClientApp/compo
 
 var _Home2 = _interopRequireDefault(_Home);
 
+var _Speakers = __webpack_require__(/*! ./components/speakers/Speakers */ "./ClientApp/components/speakers/Speakers.js");
+
+var _Speakers2 = _interopRequireDefault(_Speakers);
+
 var _RoutesNotFound = __webpack_require__(/*! ./RoutesNotFound */ "./ClientApp/RoutesNotFound.js");
 
 var _RoutesNotFound2 = _interopRequireDefault(_RoutesNotFound);
@@ -151,38 +155,34 @@ var Routes = function (_Component) {
             var _this2 = this;
 
             return _react2.default.createElement(
-                _reactRouterDom.BrowserRouter,
+                'div',
                 null,
                 _react2.default.createElement(
-                    'div',
+                    _reactRouterDom.Switch,
                     null,
-                    _react2.default.createElement(
-                        _reactRouterDom.Switch,
-                        null,
-                        _react2.default.createElement(_reactRouterDom.Route, {
-                            exact: true, path: '/',
-                            render: function render() {
-                                return _react2.default.createElement(
-                                    'h1',
-                                    null,
-                                    'Default routed page'
-                                );
-                            } }),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home', component: _Home2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/speakers', component: Speakers }),
-                        _react2.default.createElement(_reactRouterDom.Route, {
-                            exact: true, path: '/route1',
-                            render: function render() {
-                                return _react2.default.createElement(
-                                    'h1',
-                                    null,
-                                    ' This is Route1'
-                                );
-                            } }),
-                        _react2.default.createElement(_reactRouterDom.Route, { render: function render(props) {
-                                return _react2.default.createElement(_RoutesNotFound2.default, { action: _this2.handler });
-                            } })
-                    )
+                    _react2.default.createElement(_reactRouterDom.Route, {
+                        exact: true, path: '/',
+                        render: function render() {
+                            return _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Default routed page'
+                            );
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home', component: _Home2.default }),
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/speakers', component: _Speakers2.default }),
+                    _react2.default.createElement(_reactRouterDom.Route, {
+                        exact: true, path: '/route1',
+                        render: function render() {
+                            return _react2.default.createElement(
+                                'h1',
+                                null,
+                                ' This is Route1'
+                            );
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { render: function render(props) {
+                            return _react2.default.createElement(_RoutesNotFound2.default, { action: _this2.handler });
+                        } })
                 )
             );
         }
@@ -464,6 +464,168 @@ exports.default = Home;
 
 /***/ }),
 
+/***/ "./ClientApp/components/speakers/Speakers.js":
+/*!***************************************************!*\
+  !*** ./ClientApp/components/speakers/Speakers.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "react-redux");
+
+var _speakers = __webpack_require__(/*! ../../../redux/actions/speakers */ "./redux/actions/speakers.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import axios from 'axios';
+///import { connect } from 'tls';
+
+var Speakers = function (_Component) {
+    _inherits(Speakers, _Component);
+
+    function Speakers(props) {
+        _classCallCheck(this, Speakers);
+
+        var _this = _possibleConstructorReturn(this, (Speakers.__proto__ || Object.getPrototypeOf(Speakers)).call(this, props));
+
+        _this.state = {
+            appData: [],
+            isLoading: true
+        };
+        return _this;
+    }
+
+    _createClass(Speakers, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.props.speakersFetchData();
+
+            //    axios.get('/data/speakers.json')
+            //    .then(result=>{
+            //      this.setState({
+            //          appData:result.data,
+            //          isLoading:false
+            //      })
+            //    })
+            // .catch(error=>{
+            //     if(error.response){
+            //         console.log(error.responderEnd);
+            //     }
+            // })    
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            if (this.props.isLoading == true) {
+                return _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement(
+                        'i',
+                        null,
+                        'Loading...'
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    'table',
+                    null,
+                    _react2.default.createElement(
+                        'thead',
+                        null,
+                        _react2.default.createElement(
+                            'tr',
+                            null,
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'Id'
+                            ),
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'FirstName'
+                            ),
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'LastName'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tbody',
+                        null,
+                        this.props.speakers.map(function (ad) {
+                            return _react2.default.createElement(
+                                'tr',
+                                { key: ad.id },
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    ad.id
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    ad.fName
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    ad.lName
+                                )
+                            );
+                        })
+                    )
+                )
+
+                // <div> 
+
+                //     <span>{JSON.stringify(this.state.appData)}</span>
+                // </div>
+                ;
+            }
+        }
+    }]);
+
+    return Speakers;
+}(_react.Component);
+
+//export default Speakers;
+
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        speakers: state.speakers.data,
+        hasErrored: state.speakers.hasErrored,
+        isLoading: state.speakers.isLoading,
+        errorMessage: state.speakers.errorMessage
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, { speakersFetchData: _speakers.speakersFetchData })(Speakers);
+
+/***/ }),
+
 /***/ "./ServerApp/Renderer.js":
 /*!*******************************!*\
   !*** ./ServerApp/Renderer.js ***!
@@ -547,6 +709,38 @@ app.listen(3040, function () {
 
 /***/ }),
 
+/***/ "./redux/actions/speakers.js":
+/*!***********************************!*\
+  !*** ./redux/actions/speakers.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.speakersFetchData = speakersFetchData;
+var SPEAKER_LOAD = exports.SPEAKER_LOAD = 'SPEAKER_LOAD';
+var SPEAKER_LOAD_SUCCESS = exports.SPEAKER_LOAD_SUCCESS = 'SPEAKER_LOAD_SUCCESS';
+var SPEAKER_LOAD_FAIL = exports.SPEAKER_LOAD_FAIL = 'SPEAKER_LOAD_FAIL';
+
+function speakersFetchData() {
+    return {
+        type: SPEAKER_LOAD,
+        payload: {
+            request: {
+                //url:'/speakers'
+                url: '/data/speakers.json'
+            }
+        }
+    };
+}
+
+/***/ }),
+
 /***/ "express":
 /*!**************************!*\
   !*** external "express" ***!
@@ -588,6 +782,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
 
 /***/ }),
 

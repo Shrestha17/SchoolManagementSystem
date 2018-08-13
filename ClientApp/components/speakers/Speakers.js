@@ -1,16 +1,24 @@
 import React,{Component} from 'react';
 import axios from 'axios';
+///import { connect } from 'tls';
+
+import {connect} from 'react-redux';
+import {speakersFetchData} from '../../../redux/actions/speakers';
+
+
 
 class Speakers extends Component{
-    constructor()
+    constructor(props)
     {
-        super();
+        super(props);
         this.state={
             appData:[],
             isLoading:true
         }
     }
    componentDidMount(){
+//this.props.speakersFetchData();
+
        axios.get('/data/speakers.json')
        .then(result=>{
          this.setState({
@@ -63,3 +71,16 @@ class Speakers extends Component{
 }
 
 export default Speakers;
+
+
+// const mapStateToProps=(state)=>{
+//     return{
+//         speakers:state.speakers.data,
+//         hasErrored:state.speakers.hasErrored,
+//         isLoading:state.speakers.isLoading,
+//         errorMessage:state.speakers.errorMessage
+//     };
+// };
+
+// export default connect(mapStateToProps,
+//     {speakersFetchData})(Speakers)
