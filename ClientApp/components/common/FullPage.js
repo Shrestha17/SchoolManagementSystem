@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+
 import React, { Component } from 'react';
 import Routes from '../../Routes';
 import Footer from './Footer';

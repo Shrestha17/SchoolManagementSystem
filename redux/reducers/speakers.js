@@ -1,32 +1,48 @@
 import { SPEAKER_LOAD,SPEAKER_LOAD_FAIL,SPEAKER_LOAD_SUCCESS} from "../actions/speakers";
 
-export function Speakers(state,actions)
-{
-switch(action.type){
-    case SPEAKER_LOAD: {
 
-        return Object.assign({}, state, {
-            isLoading: true,
-            hasErrored: false
-        });
-    }
-    case SPEAKER_LOAD_SUCCESS: {
-        return Object.assign({}, state, {
-            data: action.payload.data,
-            isLoading: false,
-            hasErrored: false
-        });
-    }
+//export function Speakers(state,actions)
 
-    case SPEAKER_LOAD_FAIL: {
-        return Object.assign({}, state, {
-            isLoading: false,
-            hasErrored: true,
-            errorMessage: action.error.message
-        });
+export function speakers(state = {
+                             data: [],
+                             isLoading: true,
+                             hasErrored: false,
+                             errorMessage: ""
+                         },
+                         action) {
+
+    //console.log('reducer/speakers:' + action.type);
+
+    switch (action.type) {
+
+        case SPEAKER_LOAD: {
+
+            return Object.assign({}, state, {
+                isLoading: true,
+                hasErrored: false
+            });
+        }
+
+        case SPEAKER_LOAD_SUCCESS: {
+            return Object.assign({}, state, {
+                data: action.payload.data,
+                isLoading: false,
+                hasErrored: false
+            });
+        }
+
+        case SPEAKER_LOAD_FAIL: {
+            return Object.assign({}, state, {
+                isLoading: false,
+                hasErrored: true,
+                errorMessage: action.error.message
+            });
+        }
+
+        default:
+            return state;
     }
-    default: 
-    return state;
 }
 
-}
+
+

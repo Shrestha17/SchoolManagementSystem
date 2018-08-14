@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router } from 'react-router-dom';
+import {browseHistory} from 'react-router';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/home/Home';
 import Speakers from './components/speakers/Speakers'
@@ -16,9 +17,7 @@ class Routes extends Component {
         this.props.action();
     }
     render() {  
-        return (
-            <Router>
-                <div>
+        return (          
                     <Switch>
                         <Route
                             exact path="/"
@@ -40,9 +39,7 @@ class Routes extends Component {
                                 <h1>Route Not Found</h1>
                             )}
                         /> */}
-                    </Switch>
-                </div>
-            </Router>
+                    </Switch>  
 
         )
     };

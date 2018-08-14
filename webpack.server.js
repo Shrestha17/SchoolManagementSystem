@@ -7,7 +7,7 @@ const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
 
 const config = {   
-    mode:"development",      
+    mode:"none",      
     target: 'node', 
     // node: {
     //     console: false,

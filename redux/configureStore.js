@@ -3,15 +3,19 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 
-export default function 
-    configureStore(initialState = {}) { 
+export default function configureStore
+    (initialState = {}) { 
+        const composeEnhancers=composeWithDevTools({
+        }); 
 
     return createStore(
         reducers,
-        initialState,     
+        initialState, 
+        composeEnhancers(    
         applyMiddleware(thunk,
-        axios.create(axiosMiddleware(client)))
+        axiosMiddleware(axios.create())))
     );
 }

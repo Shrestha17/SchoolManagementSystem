@@ -17,13 +17,11 @@ export default (req) => {
           <head>
             <title>SVCC React Application</title>
             <link rel="stylesheet" href="">            
-          </head>
-          
+          </head>          
           <body>
             <div id="app">${content}</div>
             <script src="clientbundle.js"></script>
-          </body>
-          
+          </body>           
         </html>
       `,
         routestatus: context.status
