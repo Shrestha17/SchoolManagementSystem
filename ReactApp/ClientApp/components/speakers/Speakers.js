@@ -39,8 +39,7 @@ class Speakers extends Component {
     }
 
 
-    render() {
-
+    render() {        
         if (this.props.isLoading) {
             return <span><div><SpeakersHeader/></div><i>Loading...</i></span>
         }
@@ -51,8 +50,11 @@ class Speakers extends Component {
             return (
                 <div>
                     <SpeakersHeader/>
-                    <SpeakerList speakers={this.props.speakers} />
+                    <SpeakerList speakers={this.props.speakers} />            
+
                 </div>
+
+                
             );
         }
     }

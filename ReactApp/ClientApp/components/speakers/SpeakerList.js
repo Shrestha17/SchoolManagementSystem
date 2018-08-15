@@ -2,18 +2,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import SpeakerListItem from './SpeakerListItem';
 
-export default function SpeakerList({ speakers }) {
-  return ( 
-               <div>
-                {speakers.map(item => (
+export default function SpeakerList({ speakers }) {  
+  return (    
+              <div>
+                {speakers.map(item => (               
                   <SpeakerListItem
                     key={item.id}
                     fName={item.fName}
                     lName={item.lName}                  
                     id={item.id}
-                  />
-                ))}
-              </div>
+                  />                 
+                ))}            
+           </div>
+            
                );
               }
 

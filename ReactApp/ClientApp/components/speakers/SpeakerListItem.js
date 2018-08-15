@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function SpeakerListItem({
-                                            id,
-                                            fName,
-                                            lName,                                       
-                                        }) {
-
-    return (  
-            <div>
+export default function SpeakerListItem({id,fName,lName})
+ {                                                                                       
+    return (       
+            <div>              
                 {fName} {lName}
-            </div>                   
+            </div>                               
     );
 }
 
