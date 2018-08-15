@@ -34907,14 +34907,66 @@ function SpeakerList(_ref) {
   return _react2.default.createElement(
     'div',
     null,
-    speakers.map(function (item) {
-      return _react2.default.createElement(_SpeakerListItem2.default, {
-        key: item.id,
-        fName: item.fName,
-        lName: item.lName,
-        id: item.id
-      });
-    })
+    _react2.default.createElement(
+      'table',
+      null,
+      _react2.default.createElement(
+        'thead',
+        null,
+        _react2.default.createElement(
+          'tr',
+          null,
+          _react2.default.createElement(
+            'th',
+            null,
+            'Id'
+          ),
+          _react2.default.createElement(
+            'th',
+            null,
+            'FirstName'
+          ),
+          _react2.default.createElement(
+            'th',
+            null,
+            'LastName'
+          )
+        )
+      ),
+      _react2.default.createElement(
+        'tbody',
+        null,
+        speakers.map(function (item) {
+          return _react2.default.createElement(
+            'tr',
+            { key: item.id },
+            _react2.default.createElement(
+              'td',
+              null,
+              item.id
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              item.fName
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              item.lName
+            )
+          )
+
+          // <SpeakerListItem
+          //   key={item.id}
+          //   fName={item.fName}
+          //   lName={item.lName}                  
+          //   id={item.id}
+          // />                 
+          ;
+        })
+      )
+    )
   );
 }
 
