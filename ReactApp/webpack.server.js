@@ -8,20 +8,15 @@ const baseConfig = require('./webpack.base.js');
 
 const config = {   
     mode:"none",      
-    target: 'node', 
-    // node: {
-    //     console: false,
-    //     fs: 'empty',
-    //     net: 'empty',
-    //     tls: 'empty'
-    //   },
-    //browser:{fs:false},
+    target: 'node',  
     entry: SERVER_DIR + '/Server.js',   
     output: {
         path: BUILD_DIR,
         filename: 'serverbundle.js'
     },
-    externals:[webpackNodeExternals()]
+   // externals:[webpackNodeExternals()]
+
+   devtool: 'source-map',
 };
 
 module.exports =merge(baseConfig, config);  

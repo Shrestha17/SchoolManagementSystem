@@ -11290,7 +11290,10 @@ var Home = function (_Component) {
     return Home;
 }(_react.Component);
 
-exports.default = Home;
+exports.default = {
+    component: Home
+};
+//export default Home;
 
 /***/ }),
 /* 78 */
@@ -11375,7 +11378,6 @@ var Speakers = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-
             if (this.props.isLoading) {
                 return _react2.default.createElement(
                     'span',
@@ -11578,9 +11580,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function SpeakerList(_ref) {
   var speakers = _ref.speakers;
 
-  // var newData = speakers.concat([speakers]);  
-  // this.setState({speakers: newData})
-
   return _react2.default.createElement(
     'div',
     null,
@@ -11629,7 +11628,6 @@ function SpeakerListItem(_ref) {
     var id = _ref.id,
         fName = _ref.fName,
         lName = _ref.lName;
-
 
     return _react2.default.createElement(
         'div',

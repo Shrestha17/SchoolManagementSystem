@@ -46,12 +46,11 @@ class Speakers extends Component {
         else if (this.props.hasErrored) {
             return <span><b>Failed to load data: {this.props.errorMessage}</b></span>
         }
-        else {
+        else {          
             return (
                 <div>
-                    <SpeakersHeader/>
-                    <SpeakerList speakers={this.props.speakers} />            
-
+                    <SpeakersHeader/>                            
+                    <SpeakerList speakers={this.props.speakers} />  
                 </div>
 
                 

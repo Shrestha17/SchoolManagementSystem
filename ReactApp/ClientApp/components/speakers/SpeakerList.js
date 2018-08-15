@@ -5,14 +5,31 @@ import SpeakerListItem from './SpeakerListItem';
 export default function SpeakerList({ speakers }) {  
   return (    
               <div>
-                {speakers.map(item => (               
-                  <SpeakerListItem
-                    key={item.id}
-                    fName={item.fName}
-                    lName={item.lName}                  
-                    id={item.id}
-                  />                 
-                ))}            
+                    <table>
+                        <thead>
+                          <tr>
+                            <th>Id</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                {speakers.map(item => (                    
+                          <tr key={item.id}>
+                            <td>{item.id}</td>
+                            <td>{item.fName}</td>
+                            <td>{item.lName}</td>
+                          </tr>
+                           
+                  // <SpeakerListItem
+                  //   key={item.id}
+                  //   fName={item.fName}
+                  //   lName={item.lName}                  
+                  //   id={item.id}
+                  // />                 
+                ))}   
+                    </tbody>
+                      </table>           
            </div>
             
                );

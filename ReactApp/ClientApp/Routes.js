@@ -13,7 +13,8 @@ import RouteNotFound from './RoutesNotFound';
 export default [
     {
         ...App,
-        routes: [      
+        routes: [   
+         
             {
                 ...Home,
                 path: '/home',
