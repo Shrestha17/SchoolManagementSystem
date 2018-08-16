@@ -33,6 +33,7 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^4.0.0",
     "redux-axios-middleware": "^4.0.0",
+    "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.3.0",
     "rimraf": "^2.6.2",
     "stream": "0.0.2",
@@ -51,14 +52,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "start:dev": "webpack-dev-server --config webpack.client.js --hot --content-base public --history-api-fallback",
-    
     "dev:build-server": "webpack  --config webpack.server.js",
     "dev:build-client": "webpack  --config webpack.client.js",
     "dev:server": "node build/serverbundle.js",
     "dev:all": "npm-run-all --serial dev:build-server dev:build-client dev:server",
-
     "prod:bundlefordeploy": "webpack --config webpack.client.js",
     "prod:cleanwwwroot": "rimraf ../WebApp/SMS/wwwroot",
     "prod:copytowwwroot": "cpx public/**/* ../WebApp/SMS/wwwroot",

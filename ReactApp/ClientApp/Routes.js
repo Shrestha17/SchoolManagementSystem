@@ -20,6 +20,11 @@ export default [
                 path: '/',
                 exact: true
             },
+            {      
+                ...Home,          
+                path: '/home',
+                exact: true
+            },
             {
                 ...Speakers,
                 path: '/speakers',
