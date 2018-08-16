@@ -57,15 +57,13 @@
     "dev:build-server": "webpack  --config webpack.server.js",
     "dev:build-client": "webpack  --config webpack.client.js",
     "dev:server": "node build/serverbundle.js",
-    "dev:all":"npm-run-all --serial dev:build-server dev:build-client dev:server",
-   
+    "dev:all": "npm-run-all --serial dev:build-server dev:build-client dev:server",
 
-    "prod:bundlefordeploy":"webpack --config webpack.client.js",
+    "prod:bundlefordeploy": "webpack --config webpack.client.js",
     "prod:cleanwwwroot": "rimraf ../WebApp/SMS/wwwroot",
-    "prod:copytowwwroot": "cpx '/public/**/*' ../WebApp/SMS/wwwroot",
-    "prod:deploy":"npm-run-all --serial prod:bundlefordeploy prod:cleanwwwroot prod:copytowwwroot"
+    "prod:copytowwwroot": "cpx public/**/* ../WebApp/SMS/wwwroot",
+    "prod:deploy": "npm-run-all --serial prod:bundlefordeploy  prod:cleanwwwroot prod:copytowwwroot"
   },
   "author": "",
   "license": "ISC"
 }
- 

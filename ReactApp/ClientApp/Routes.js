@@ -15,9 +15,9 @@ export default [
         ...App,
         routes: [   
          
-            {
-                ...Home,
-                path: '/home',
+            {      
+                ...Home,          
+                path: '/',
                 exact: true
             },
             {

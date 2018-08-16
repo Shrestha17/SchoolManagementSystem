@@ -9,9 +9,9 @@ class RouteNotFound extends Component {
     }
 }
 
-export default {
-    component: RouteNotFound
-};
+    export default {
+        component: RouteNotFound
+    };
 
 
 
